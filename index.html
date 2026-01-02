@@ -19,19 +19,13 @@
             color: #1A1A1A;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
-        }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
         .tilet-border {
             border-image: linear-gradient(to right, #006837 20%, #FBB03B 20% 40%, #ED1C24 40% 60%, #FBB03B 60% 80%, #006837 80%) 30;
             border-bottom: 5px solid;
         }
-        .solid-shadow {
-            box-shadow: 4px 4px 0px 0px rgba(14, 42, 33, 1);
-        }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         #root:empty {
             min-height: 100vh;
             display: flex;
@@ -40,14 +34,21 @@
             font-weight: bold;
             color: #0E2A21;
         }
-        #root:empty::after { content: "Loading Habesha Heritage..."; }
+        #root:empty::after {
+            content: "Loading Habesha Heritage...";
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
     "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
   }
@@ -56,6 +57,7 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- Using a single robust JS file to avoid module resolution errors on static hosts -->
     <script type="module" src="./src/main.js"></script>
 </body>
 </html>
