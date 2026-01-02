@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,10 +23,6 @@
         h1, h2, h3, .serif {
             font-family: 'Playfair Display', serif;
         }
-        .habesha-pattern {
-            background-color: #ffffff;
-            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-        }
         .tilet-border {
             border-image: linear-gradient(to right, #006837 20%, #FBB03B 20% 40%, #ED1C24 40% 60%, #FBB03B 60% 80%, #006837 80%) 30;
             border-bottom: 5px solid;
@@ -35,33 +30,32 @@
         .solid-shadow {
             box-shadow: 4px 4px 0px 0px rgba(14, 42, 33, 1);
         }
-        .modal-overlay {
-            background-color: rgba(0, 0, 0, 0.85);
-        }
-        /* Fallback background while JS loads */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         #root:empty {
             min-height: 100vh;
-            background-color: #FCFBF4;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: bold;
+            color: #0E2A21;
         }
+        #root:empty::after { content: "Loading Habesha Heritage..."; }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
   }
 }
 </script>
 </head>
 <body>
     <div id="root"></div>
-    <!-- Explicitly load the index.tsx as a module -->
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>
