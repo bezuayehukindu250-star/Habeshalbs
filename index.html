@@ -18,6 +18,8 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--habesha-cream);
             color: #1A1A1A;
+            margin: 0;
+            padding: 0;
         }
         h1, h2, h3, .serif {
             font-family: 'Playfair Display', serif;
@@ -36,6 +38,14 @@
         .modal-overlay {
             background-color: rgba(0, 0, 0, 0.85);
         }
+        /* Fallback background while JS loads */
+        #root:empty {
+            min-height: 100vh;
+            background-color: #FCFBF4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 <script type="importmap">
 {
@@ -51,5 +61,7 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- Explicitly load the index.tsx as a module -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
